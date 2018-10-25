@@ -5,13 +5,13 @@ using CoreAuthentication.ViewModel;
 
 namespace CoreAuthentication.Models
 {
-    public partial class aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context : DbContext
+    public partial class aspnetWebApplication9576319532204474D8C2D4A11DD127D27 : DbContext
     {
-        public aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context()
+        public aspnetWebApplication9576319532204474D8C2D4A11DD127D27()
         {
         }
 
-        public aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context(DbContextOptions<aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context> options)
+        public aspnetWebApplication9576319532204474D8C2D4A11DD127D27(DbContextOptions<aspnetWebApplication9576319532204474D8C2D4A11DD127D27> options)
             : base(options)
         {
         }
@@ -52,7 +52,7 @@ namespace CoreAuthentication.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-NB093L1\\SQLEXPRESS;Database=aspnet-CoreAuthentication-BE4FE1DC-1288-4515-9E4A-1B6F524F8DF7;user Id=vista;Password=star;");
+                optionsBuilder.UseSqlServer("Server=PHANI\\SQLEXPRESS;Database=aspnet-WebApplication9-57631953-2204-474D-8C2D-4A11DD127D27;user Id=vista;Password=star;");
             }
         }
 

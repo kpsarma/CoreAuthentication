@@ -39,15 +39,15 @@ namespace CoreAuthentication.ViewModel
     {              
         public  string SelectedCountryId { get; set; }
         public  string SelectedStateId { get; set; }
+        
 
-      
         public  IEnumerable<SelectListItem> getCountriesAsSelectListItems()
         {
             List<SelectListItem> countries = new List<SelectListItem>();
 
-            using (aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context = new aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context())
+            using (aspnetWebApplication9576319532204474D8C2D4A11DD127D27 _aspnetWebApplication9576319532204474D8C2D4A11DD127D27 = new aspnetWebApplication9576319532204474D8C2D4A11DD127D27())
             {
-                foreach (Country cn in _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context.Country)
+                foreach (Country cn in _aspnetWebApplication9576319532204474D8C2D4A11DD127D27.Country)
                 {
                     countries.Add(new SelectListItem() { Text = cn.Name, Value = cn.Id, Selected = (cn.Id == SelectedCountryId ? true : false) });
                 }
@@ -59,9 +59,9 @@ namespace CoreAuthentication.ViewModel
         {
             List<Country> countries = new List<Country>();
 
-            using (aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context = new aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context())
+            using (aspnetWebApplication9576319532204474D8C2D4A11DD127D27 _aspnetWebApplication9576319532204474D8C2D4A11DD127D27 = new aspnetWebApplication9576319532204474D8C2D4A11DD127D27())
             {
-                foreach (Country cn in _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context.Country.Where(rec => rec.Id != ""))
+                foreach (Country cn in _aspnetWebApplication9576319532204474D8C2D4A11DD127D27.Country.Where(rec => rec.Id != ""))
                 {
                     countries.Add(new Country() { Id = cn.Id, Name = cn.Name });
                 }
@@ -72,9 +72,9 @@ namespace CoreAuthentication.ViewModel
         public IEnumerable<SelectListItem> getStatesAsSelectListItems()
         {
             List<SelectListItem> states = new List<SelectListItem>();
-            using (aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context = new aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context())
+            using (aspnetWebApplication9576319532204474D8C2D4A11DD127D27 _aspnetWebApplication9576319532204474D8C2D4A11DD127D27 = new aspnetWebApplication9576319532204474D8C2D4A11DD127D27())
             {
-                foreach (State st in _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context.State.Where(rec=>rec.CountryId ==SelectedCountryId))
+                foreach (State st in _aspnetWebApplication9576319532204474D8C2D4A11DD127D27.State.Where(rec=>rec.CountryId ==SelectedCountryId))
                 {
                     states.Add(new SelectListItem() { Text = st.Name, Value = st.Id, Selected = (st.Id == SelectedStateId ? true : false) });
                 }
@@ -84,9 +84,9 @@ namespace CoreAuthentication.ViewModel
         public IEnumerable<State> getStates()
         {
             List<State> states = new List<State>();
-            using (aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context = new aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context())
+            using (aspnetWebApplication9576319532204474D8C2D4A11DD127D27 _aspnetWebApplication9576319532204474D8C2D4A11DD127D27 = new aspnetWebApplication9576319532204474D8C2D4A11DD127D27())
             {
-                foreach (State st in _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context.State.Where(rec => rec.CountryId == SelectedCountryId))
+                foreach (State st in _aspnetWebApplication9576319532204474D8C2D4A11DD127D27.State.Where(rec => rec.CountryId == SelectedCountryId))
                 {
                     states.Add(new State() { Id = st.Id, Name = st.Name, CountryId = st.CountryId });
                 }
@@ -116,10 +116,10 @@ namespace CoreAuthentication.ViewModel
 
         public void SaveState(StateVM stateVM)
         {
-            using (aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context = new aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context())
+            using (aspnetWebApplication9576319532204474D8C2D4A11DD127D27 _aspnetWebApplication9576319532204474D8C2D4A11DD127D27 = new aspnetWebApplication9576319532204474D8C2D4A11DD127D27())
             {
-                _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context.State.Add(new State() { Id = Guid.NewGuid().ToString(), Name = stateVM.state, CountryId = stateVM.selectedCountryId });
-                _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context.SaveChanges();
+                _aspnetWebApplication9576319532204474D8C2D4A11DD127D27.State.Add(new State() { Id = Guid.NewGuid().ToString(), Name = stateVM.state, CountryId = stateVM.selectedCountryId });
+                _aspnetWebApplication9576319532204474D8C2D4A11DD127D27.SaveChanges();
             }
         }
     }
@@ -140,10 +140,10 @@ namespace CoreAuthentication.ViewModel
         }
         public void SaveCountry(CountryVM countryVM)
         {
-            using (aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context = new aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context())
+            using (aspnetWebApplication9576319532204474D8C2D4A11DD127D27 _aspnetWebApplication9576319532204474D8C2D4A11DD127D27 = new aspnetWebApplication9576319532204474D8C2D4A11DD127D27())
             {
-                _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context.Country.Add(new Country() { Id = Guid.NewGuid().ToString(), Name = countryVM.country.Name });
-                _aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context.SaveChanges();                
+                _aspnetWebApplication9576319532204474D8C2D4A11DD127D27.Country.Add(new Country() { Id = Guid.NewGuid().ToString(), Name = countryVM.country.Name });
+                _aspnetWebApplication9576319532204474D8C2D4A11DD127D27.SaveChanges();                
             }
         }
         public static ModelStateDictionary ValidateCountry(ref CountryVM countryVM)

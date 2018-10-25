@@ -81,7 +81,7 @@ namespace CoreAuthentication
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDbContext<aspnetCoreAuthenticationBE4FE1DC128845159E4A1B6F524F8DF7Context>(options =>
+            services.AddDbContext<aspnetWebApplication9576319532204474D8C2D4A11DD127D27>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
