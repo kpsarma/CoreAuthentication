@@ -120,6 +120,7 @@ namespace CoreAuthentication.ViewModel
             {
                 _aspnetWebApplication9576319532204474D8C2D4A11DD127D27.State.Add(new State() { Id = Guid.NewGuid().ToString(), Name = stateVM.state, CountryId = stateVM.selectedCountryId });
                 _aspnetWebApplication9576319532204474D8C2D4A11DD127D27.SaveChanges();
+
             }
         }
     }
